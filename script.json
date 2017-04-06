@@ -1,0 +1,181 @@
+[
+    {
+        "command": "help",
+        "description": "A flexible help system for your bot",
+        "triggers": [
+            {
+                "type": "string",
+                "pattern": "help"
+            }
+        ],
+        "variables": [],
+        "script": [
+            {
+                "topic": "default",
+                "script": [
+                    {
+                        "text": [
+                            "I'm here to help! Here are some of the commands that come standard with my starter kit.\n\nYou can say `help <command>` to get more details."
+                        ],
+                        "attachments": [
+                            {
+                                "title": "uptime",
+                                "text": "See how long this bot has been running",
+                                "fields": [],
+                                "actions": [],
+                                "color": "#ff0000",
+                                "fallback": "Command 1"
+                            },
+                            {
+                                "title": "identify",
+                                "text": "Who is this bot, anyways?",
+                                "fields": [],
+                                "actions": [],
+                                "color": "#ff8000"
+                            },
+                            {
+                                "title": "say <something>",
+                                "text": "The bot will repeat after you",
+                                "fields": [],
+                                "actions": [],
+                                "color": "#ffff00"
+                            },
+                            {
+                                "title": "My Custom Command",
+                                "text": "Customize me!",
+                                "fields": [],
+                                "actions": [],
+                                "color": "#80ff00"
+                            },
+                            {
+                                "title": "My Custom Command",
+                                "text": "Customize Me!",
+                                "fields": [],
+                                "actions": [],
+                                "color": "#0080ff"
+                            }
+                        ]
+                    },
+                    {
+                        "text": [
+                            "As you add features and adapt me to be _your own bot_, you should update my help system <https://studio.botkit.ai|via the Botkit Studio dialog editor.>"
+                        ]
+                    },
+                    {
+                        "action": "complete"
+                    }
+                ]
+            },
+            {
+                "topic": "uptime",
+                "script": [
+                    {
+                        "text": [
+                            "My uptime command displays information about my application process."
+                        ]
+                    },
+                    {
+                        "text": [
+                            "To activate it, say `@{{identity.name}} uptime`"
+                        ],
+                        "attachments": [
+                            {
+                                "title": "",
+                                "text": "",
+                                "fields": [],
+                                "actions": [
+                                    {
+                                        "text": "Try Now",
+                                        "name": "say",
+                                        "value": "uptime",
+                                        "type": "button",
+                                        "style": "default"
+                                    }
+                                ],
+                                "fallback": "Try Now",
+                                "callback_id": "help_uptime"
+                            }
+                        ]
+                    },
+                    {
+                        "action": "complete"
+                    }
+                ]
+            },
+            {
+                "topic": "say",
+                "script": [
+                    {
+                        "text": [
+                            "You can make me say silly things."
+                        ]
+                    },
+                    {
+                        "text": [
+                            "Say `@{{identity.name}} say _something hilarious_`"
+                        ],
+                        "attachments": [
+                            {
+                                "title": "",
+                                "text": "",
+                                "fields": [],
+                                "actions": [
+                                    {
+                                        "text": "Say Foo",
+                                        "name": "say",
+                                        "value": "say foo",
+                                        "type": "button"
+                                    },
+                                    {
+                                        "text": "Say Bar",
+                                        "name": "say",
+                                        "value": "bar",
+                                        "type": "button"
+                                    }
+                                ],
+                                "callback_id": "say_example"
+                            }
+                        ]
+                    },
+                    {
+                        "action": "complete"
+                    }
+                ]
+            },
+            {
+                "topic": "identify",
+                "script": [
+                    {
+                        "text": [
+                            "As a Botkit-powered robot, I am required to identify myself when asked."
+                        ]
+                    },
+                    {
+                        "text": [
+                            "Say `@{{identity.name}} identify yourself` or `@{{identity.name}} who are you?`"
+                        ],
+                        "attachments": [
+                            {
+                                "title": "",
+                                "text": "",
+                                "fields": [],
+                                "actions": [
+                                    {
+                                        "text": "Try now",
+                                        "name": "say",
+                                        "value": "identify yourself",
+                                        "type": "button"
+                                    }
+                                ],
+                                "callback_id": "identify_help"
+                            }
+                        ]
+                    },
+                    {
+                        "action": "complete"
+                    }
+                ]
+            }
+        ]
+    }
+]
